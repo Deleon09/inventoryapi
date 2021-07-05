@@ -45,6 +45,28 @@ var ProductCollectionController = {
         }
     },
 
+    getAll: async (req, res) => {
+        try{
+            const { page = 1, limit = 10 } = req.query;
+    
+            const productscollection = await ProductCollection.find()
+                .limit(limit * 1)
+                .skip((page - 1) * limit)
+                .exec()
+            
+            const count = await ProductCollection.countDocuments();
+    
+            return res.status(200).json({
+                pages: Math.ceil(count / limit),
+                current: page,
+                productscollection
+            });
+        }
+        catch(err){
+            return res.status(400).json(err);
+        }
+    }
+
 };
 
 module.exports = ProductCollectionController;
