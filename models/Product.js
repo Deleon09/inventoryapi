@@ -5,13 +5,11 @@ var Product = new Schema({
     quantity: Number,
     supplierId: {
         type: String,
-        required: true
     },
     price: Number,
     imageUrl: String,
     userId: {
         type: String,
-        required: true
     }
 });
 
