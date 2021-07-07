@@ -12,7 +12,8 @@ var UserController = {
 
             var newUser = new User({
                 username: req.body.username,
-                password: req.body.password
+                password: req.body.password,
+                inventorytype: req.body.inventorytype
             })
 
             await newUser.save();
