@@ -61,4 +61,4 @@ var BelongingsController = {
 
 };
 
-module.exports = Belongings
+module.exports = BelongingsController
