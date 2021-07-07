@@ -25,6 +25,19 @@ var ProductCollectionController = {
         }
     },
 
+    deleteProC: async (req, res) => {
+        try {
+            var supr = await ProductCollection.findOneAndDelete({
+              _id: req.body._id
+            });
+  
+            return res.status(200).json({ obj: supr });
+            
+        } catch (err) {
+              return res.status(400).json(err);
+        }
+    },
+
     updateCollection: async (req, res) => {
         try {
             const cracoProduct = req.body.cracoProduct
